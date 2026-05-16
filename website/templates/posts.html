@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %}posts{% endblock %}
+
+{% block body %}
+
+	{% if posts == [] %}
+
+		{{"nothing yet"}}
+
+	{% else %}
+
+		{% for post in posts %}
+			<div class="card bg-dark border border-primary" align="center">
+				 <div class="card-body">
+				    
+				 	<div class="border border-secondary">
+				    
+				    	<h5 class="card-title">{{post.author}}</h5>
+				    
+				    	<h6 class="card-subtitle mb-2 text-muted">
+				    		{% if post.likable %}
+				    			{{ post.likes }}
+                            {% else %}
+                                likes disabled
+				    		{% endif %}
+				    	</h6>
+
+				    	<h6 class="card-subtitle mb-2 text-muted">
+				    		{% if post.parent != None %}
+				    			<a href="/post/{{ post.parent }}" target='_'><button type="button" class="btn btn-dark">context - {{ post.parent}}</button></a>
+				    		{% endif %}
+				    	</h6>
+				    
+				 	</div>
+
+				    <p class="card-text text-white">{{ post.content }}</p>
+				    
+				    {% if post.likable %}
+				    	{% if post.id not in likes|list %}
+					    	<a href="/like/{{ post.id }}" class=""><button type="button" class="btn btn-dark text-light">Like</button></a>
+					    {% else %}
+					    	<a href="/like/{{ post.id }}" class=""><button type="button" class="btn btn-dark text-light">Unlike</button></a>
+					    {% endif %}
+				    {% else %}
+				    	<div class="text-light">Likes Disabled</div>
+				    {% endif %}
+				    
+				    <a href="/reply/{{post.id}}" class=""><button type="button" class="btn btn-dark text-light">Reply</button></a>
+
+				    {% if user.id == post.author %}
+						<a href="/delete/{{ post.id }}"><button type="button" class="btn btn-dark">Delete</button></a>
+					{% endif %}
+			 	</div>
+			</div>		
+		{% endfor %}
+
+	{% endif %}
+
+{% endblock %}

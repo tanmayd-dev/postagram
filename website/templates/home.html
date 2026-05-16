@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Postagram{% endblock %}
+
+{% block body %}
+
+<center>
+    <div>
+        <h1 style="color: cyan; font-size: 75px;">Postagram</h1>
+    </div>
+    <img src="{{url_for('static', filename='postagram.png')}}" style="margin-top: 10px; margin-bottom: 10px; height: 50%; filter: contrast(200%) saturate(50%);">
+</center>
+
+<hr>
+<h4>POSTAGRAM is a website made for user interaction and it allows the user to upload posts and express their feelings online. It is a great platform where one can raise its voice. It was made using Python, HTML and CSS, and MySQL. It lets the user make an account and make posts or view posts signed out without interacting with them.</h4>
+<hr>
+
+<h3>Made With -</h3>
+<ul style="list-style-type: disc;">
+    <dt>PYTHON</dt><dd>Python is commonly used for developing websites and software, task automation, data analysis, and data visualization Its design philosophy emphasizes code readability with its use of significant indentation. Its language constructs as well as its object-oriented approach aim to help programmers write clear, logical code for small and large-scale</dd>
+    <dt>MySQL</dt><dd>MySQL is an open-source relational database management system (RDBMS). A relational database organizes data into one or more data tables in which data types may be related to each other; these relations help structure the data. SQL is used to create, modify and extract data from the relational database, as well as control user access to the database.</dd>
+    <dt>HTML</dt><dd>The HyperText Markup Language, or HTML is the standard markup language for documents designed to be displayed in a web browser. It can be assisted by technologies such as Cascading Style Sheets and scripting languages. Web browsers receive HTML documents from a web server or from local storage and render the documents into multimedia web pages. HTML describes the structure of a web page semantically and originally included cues for the appearance of the document.</dd>
+    <dt>Flask</dt><dd>Flask is a micro web framework written in Python. Flask supports extensions that can add application features as if they were implemented in Flask itself. Extensions exist for object-relational mappers, form validation, and upload handling, various open authentication technologies and several common framework related tools.</dd>
+</ul>
+
+{% endblock %}
