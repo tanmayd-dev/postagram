@@ -1,8 +1,8 @@
 flask
 flask-login
 flask-sqlalchemy
-mysql-connector
-mysql-connector-python
-mysql-connector-python-rf
+gunicorn>=22.0.0
+# MySQL/MariaDB support is optional. Only needed when DATABASE_URL points at
+# MySQL, e.g. mysql+pymysql://user:pass@host/postagram
 pymysql
 cryptography
