@@ -1,5 +1,7 @@
 # postagram
 
+**Live Deployment**: [https://postagram-7tq4.onrender.com](https://postagram-7tq4.onrender.com)
+
 > **Archive Notice**: This project is an archived school project created for Akshara International School by Sidhart, Tanishq, and Tanmay. It is maintained in a preserved, usable state for portfolio demonstration and historical reference.
 
 Small Flask social app (users, posts, replies, likes).
