@@ -1,10 +1,24 @@
 # postagram
 
+> **Archive Notice**: This project is an archived school project created for Akshara International School by Sidhart, Tanishq, and Tanmay. It is maintained in a preserved, usable state for portfolio demonstration and historical reference.
+
 Small Flask social app (users, posts, replies, likes).
+
+## Deployment (Getting a live URL)
+
+### Deploy to Render
+
+This repository includes a `render.yaml` blueprint for one-click deployment to [Render](https://render.com):
+
+1. Push your repository to GitHub.
+2. In the Render Dashboard, click **New +** > **Blueprint**.
+3. Select your repository and click **Apply**.
+4. Render will automatically build the Docker image, assign a secure generated `SECRET_KEY`, and provide a public `https://postagram-xxxx.onrender.com` URL.
 
 ## Requirements
 
-- python 3
+- Python 3.10+
+- `python3 -m venv .venv && source .venv/bin/activate`
 - `pip install -r requirements.txt`
 
 MySQL/MariaDB is optional: the app defaults to SQLite and only uses MySQL when

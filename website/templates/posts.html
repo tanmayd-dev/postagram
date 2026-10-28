@@ -4,23 +4,25 @@
 
 {% block body %}
 
-	{% if posts == [] %}
+	{% if not posts %}
 
-		{{"nothing yet"}}
+		<div class="text-center my-5">
+			<h4>Nothing yet</h4>
+		</div>
 
 	{% else %}
 
 		{% for post in posts %}
-			<div class="card bg-dark border border-primary" align="center">
+			<div class="card bg-dark border border-primary my-3" align="center">
 				 <div class="card-body">
 				    
-				 	<div class="border border-secondary">
+				 	<div class="border border-secondary p-2 mb-3">
 				    
 				    	<h5 class="card-title">{{post.author}}</h5>
 				    
 				    	<h6 class="card-subtitle mb-2 text-muted">
 				    		{% if post.likable %}
-				    			{{ post.likes }}
+				    			{{ post.likes }} likes
                             {% else %}
                                 likes disabled
 				    		{% endif %}
@@ -28,7 +30,7 @@
 
 				    	<h6 class="card-subtitle mb-2 text-muted">
 				    		{% if post.parent != None %}
-				    			<a href="/post/{{ post.parent }}" target='_'><button type="button" class="btn btn-dark">context - {{ post.parent}}</button></a>
+				    			<a href="/post/{{ post.parent }}"><button type="button" class="btn btn-dark">context - {{ post.parent}}</button></a>
 				    		{% endif %}
 				    	</h6>
 				    
@@ -43,12 +45,12 @@
 					    	<a href="/like/{{ post.id }}" class=""><button type="button" class="btn btn-dark text-light">Unlike</button></a>
 					    {% endif %}
 				    {% else %}
-				    	<div class="text-light">Likes Disabled</div>
+				    	<div class="text-light mb-2">Likes Disabled</div>
 				    {% endif %}
 				    
 				    <a href="/reply/{{post.id}}" class=""><button type="button" class="btn btn-dark text-light">Reply</button></a>
 
-				    {% if user.id == post.author %}
+				    {% if current_user.is_authenticated and current_user.id == post.author %}
 						<a href="/delete/{{ post.id }}"><button type="button" class="btn btn-dark">Delete</button></a>
 					{% endif %}
 			 	</div>

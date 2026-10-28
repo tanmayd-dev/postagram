@@ -61,7 +61,7 @@ def create_app(config=None):
 
     @login_manager.user_loader
     def load_user(username):
-        return Users.query.get(username)
+        return database.session.get(Users, username)
 
     return app
 

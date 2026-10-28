@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: postagram
+    runtime: docker
+    plan: free
+    region: oregon
+    healthCheckPath: /
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: PYTHONUNBUFFERED
+        value: "1"
